@@ -1,0 +1,28 @@
+{
+  "name": "orderpay-server",
+  "version": "1.0.0",
+  "description": "Creating a server that will add and fetch users, shops and payments.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Richieharrison/orderpay-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Richieharrison/orderpay-server/issues"
+  },
+  "homepage": "https://github.com/Richieharrison/orderpay-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.0-beta.1",
+    "mysql2": "^3.3.1",
+    "nodemon": "^2.0.22"
+  }
+}
