@@ -6,7 +6,7 @@
 import {createPool} from 'mysql2';
 
 const pool = createPool({
-    host: '173.249.26.135',
+    host: '173.249.60.35',
     user: 'orderpa1_orderpay',
     database: 'orderpa1_orderpay',
     password: '10richharry10',
@@ -70,6 +70,7 @@ export const addProduct = async (id, name, description, availability, product_co
       'WHERE NOT EXISTS (SELECT id FROM products WHERE id =? and name =? and description=? and availability =? and product_condition =? and image_url =? and price=? and fbId=? )',
       [id, name, description, availability, product_condition, image_url, price, fbId, id, name, description, availability, product_condition, image_url, price, fbId]
     );
+    console.log(id)
     return getOneProduct(id)
 }
 
@@ -82,3 +83,6 @@ export const getOneProduct = async(id)=>{
     const [rows] = await pool.query(`SELECT * FROM products WHERE id = ?`, [id]);
     return rows;
 }
+
+const ngatia = async() => {const [rows] = await pool.query('select * from products'); return rows};
+console.log(await ngatia())

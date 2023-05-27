@@ -14,6 +14,7 @@ app.use((err, req, res, next)=>{
     res.status(500).send("There is a problem, from our side try again")
 })
 
+
 app.get('/', (req, res)=>{
     res.status(200).send("This is the homepage")
 })
@@ -49,9 +50,13 @@ app.get('/all-products', async(req, res)=>{
 })
 
 app.post('/add-product', async(req, res)=>{
-    const {id, name, description, availability, product_condition, image_url, price, fbId} = req.body;
-    const newProduct = await addProduct(id, name, description, availability, product_condition, image_url, price, fbId);
-    res.send(newProduct)
+    try{
+        const {id, name, description, availability, product_condition, image_url, price, fbId} = req.body;
+        const newProduct = await addProduct(id, name, description, availability, product_condition, image_url, price, fbId);
+        return res.send(newProduct)
+    }catch(err){
+        return res.send("An error occurred")
+    }
 })
 
 app.listen(process.env.port || 3030, ()=>{
